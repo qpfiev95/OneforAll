@@ -35,12 +35,13 @@ class TrajectoryLoader(Dataset):
 
 
 ### Testing
-file_path = "p70_v5_a0.5_n10_t50.npy"
-data = np.load(file_path)
-dataset = TrajectoryLoader(file_path=file_path, input_len=8, output_len=12, irregular=False, offset=5)
-dataloader = DataLoader(dataset=dataset, batch_size=3, shuffle=True)
+if __name__ == '__main__':
+    file_path = "p70_v5_a0.5_n10_t50.npy"
+    data = np.load(file_path)
+    dataset = TrajectoryLoader(file_path=file_path, input_len=8, output_len=12, irregular=False, offset=5)
+    dataloader = DataLoader(dataset=dataset, batch_size=3, shuffle=True)
 
-# Iterate over the data loader
-for i, (input_seq, output_seq) in enumerate(dataloader):
-    print(f"batch {i}: Input sequence shape: {input_seq.shape}, Output sequence shape: {output_seq.shape}")
+    # Iterate over the data loader
+    for i, (input_seq, output_seq) in enumerate(dataloader):
+        print(f"batch {i}: Input sequence shape: {input_seq.shape}, Output sequence shape: {output_seq.shape}")
 

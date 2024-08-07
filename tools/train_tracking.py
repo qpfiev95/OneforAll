@@ -107,7 +107,7 @@ def train(model, train_loader, val_loader, optimizer, criterion, device, epoch=1
             #loss = bce_loss(output[:,0], labels[:, 0])
             #for i in range(1,num_classes):
             #    loss += bce_loss(output[:,i], labels[:, i])
-            loss = criterion(output, output_seq)
+            loss = criterion(output, output_seq.float())
             loss.backward()
             optimizer.step()
             # calculate the average loss
